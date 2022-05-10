@@ -1,0 +1,24 @@
+version: "3"
+services:
+  soga:
+    image: vaxilu/soga:latest
+    container_name: yaoyue
+    restart: on-failure
+    network_mode: host
+    environment:
+      type: sspanel-uim
+      server_type: v2ray
+      api: webapi
+      webapi_url: https://xxx
+      webapi_key: xxx
+      node_id: 0
+      soga_key: xxx
+      forbidden_bit_torrent: 'true'
+      default_dns: 1.1.1.1,8.8.8.8
+      dns_cache_time: 10
+      dns_strategy: 'ipv4_first'
+    volumes:
+      - "/etc/soga/:/etc/soga/"
+    logging:
+      options:
+        max-size: 300m
